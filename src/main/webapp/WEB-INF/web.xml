@@ -1,0 +1,67 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    id="WebApp_ID" version="3.0">
+
+    <display-name>User Management</display-name>
+
+<!--     <listener>
+        <listener-class>servlet.ServletContextClass</listener-class>
+    </listener> -->
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/appservlet/servlet-context.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>spring.profiles.default</param-name>
+        <param-value>dev</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>user_management_servlet</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>
+                org.glassfish.jersey.jackson.JacksonFeature,
+                com.user.management.util.ObjectMapperProvider,
+                org.glassfish.jersey.server.spring.scope.RequestContextFilter,
+                com.user.management.filter.ResourceFilterFactory,
+                org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature,
+                com.user.management.resource.PasswordResource,
+                com.user.management.resource.UserResource,
+                com.user.management.resource.VerificationResource
+            </param-value>
+        </init-param>
+
+        <async-supported>true</async-supported>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>user_management_servlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+<!--     <filter>
+        <filter-name>WebXmlYinTestFilter</filter-name>
+        <filter-class>servlet.filter.WebXmlYinTestFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>isLogbackOn</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>WebXmlYinTestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> -->
+
+</web-app>
