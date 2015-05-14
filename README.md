@@ -8,6 +8,7 @@ UserManagement
 
 Json Body for create a new user:
 
+<pre>
 <code>
 {
   "user" : {
@@ -23,10 +24,11 @@ Json Body for create a new user:
   }
 }
 </code>
-
+</pre>
 
 Json Body for update a requst:
 
+<pre>
 <code>
 {
   "firstName" : "Chen",
@@ -34,6 +36,6 @@ Json Body for update a requst:
   "emailAddress" : "wangchen0511@yahoo.com"
 }
 </code>
-
+</pre>
 
  
