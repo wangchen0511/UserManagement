@@ -7,6 +7,8 @@ UserManagement
 3. It is a practice for jersey, spring, jersey test framework, rolebased security auth in jersey, and also basic user authentification and authorization.
 
 Json Body for create a new user:
+
+<code>
 {
   "user" : {
     "id" : null,
@@ -20,15 +22,18 @@ Json Body for create a new user:
     "password" : "131312313123131"
   }
 }
+</code>
+
 
 Json Body for update a requst:
 
+<code>
 {
   "firstName" : "Chen",
   "lastName" : "Wang",
   "emailAddress" : "wangchen0511@yahoo.com"
 }
-
+</code>
 
 
  
